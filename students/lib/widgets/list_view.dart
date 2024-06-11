@@ -1,5 +1,7 @@
 // ignore_for_file: must_be_immutable
 
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:students/model/student_model.dart';
@@ -47,7 +49,8 @@ class CustomListView extends StatelessWidget {
                                 child: Icon(Icons.person),
                               )
                             : CircleAvatar(
-                                backgroundImage: AssetImage(data.imagePath!),
+                                backgroundImage:
+                                    FileImage(File(data.imagePath!)),
                               ),
                         title: Text(
                           data.name,

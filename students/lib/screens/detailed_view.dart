@@ -1,5 +1,7 @@
 // ignore_for_file: must_be_immutable
 
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:students/model/student_model.dart';
 import 'package:students/widgets/details_key_value.dart';
@@ -82,7 +84,7 @@ class DetailedView extends StatelessWidget {
                         ),
                       )
                     : CircleAvatar(
-                        backgroundImage: AssetImage(data.imagePath!),
+                        backgroundImage: FileImage(File(data.imagePath!)),
                         radius: size.height / 4 / 2,
                       ),
               ),

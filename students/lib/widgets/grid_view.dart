@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:students/model/student_model.dart';
@@ -19,7 +21,7 @@ class CustomGridView extends StatelessWidget {
               itemCount: controller.studentList.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                childAspectRatio: 5 / 5,
+                childAspectRatio: 5 / 5.5,
                 crossAxisSpacing: 5,
                 mainAxisSpacing: 5,
               ),
@@ -54,10 +56,18 @@ class CustomGridView extends StatelessWidget {
                                 ),
                               )
                             : CircleAvatar(
-                                backgroundImage: AssetImage(data.imagePath!),
+                                backgroundImage:
+                                    FileImage(File(data.imagePath!)),
                                 radius: 40,
                               ),
-                        Text(data.name),
+                        SizedBox(
+                          width: double.infinity,
+                          child: Text(
+                            data.name,
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 1,
+                          ),
+                        ),
                         Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,

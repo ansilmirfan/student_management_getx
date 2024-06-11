@@ -59,7 +59,7 @@ class _CreateOrEditStudentsState extends State<CreateOrEditStudents> {
                           ),
                         )
                       : CircleAvatar(
-                          radius: 60, backgroundImage: AssetImage(path!)),
+                          radius: 60, backgroundImage:FileImage(File(path!))),
                   Positioned(
                     bottom: 5,
                     right: 5,
